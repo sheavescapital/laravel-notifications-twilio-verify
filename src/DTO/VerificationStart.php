@@ -10,11 +10,11 @@ use Illuminate\Support\Str;
 /**
  * @property Collection|SendCodeAttempt[] $send_code_attempts
  */
-class VerificationStart
+final class VerificationStart
 {
     public static function fromJson(array $data): self
     {
-        return new static(
+        return new self(
             sid: Arr::get($data, 'sid'),
             service_sid: Arr::get($data, 'service_sid'),
             account_sid: Arr::get($data, 'account_sid'),
@@ -61,7 +61,7 @@ class VerificationStart
     ): self {
         $service = 'VA'.Str::random(32);
 
-        return new static(
+        return new self(
             sid: $sid ?? 'VE'.Str::random(32),
             service_sid: $service_sid ?? $service,
             account_sid: $account_sid ?? 'AC'.Str::random(32),

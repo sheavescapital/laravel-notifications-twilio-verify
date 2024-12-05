@@ -4,7 +4,7 @@ namespace SheavesCapital\TwilioVerify\DTO;
 
 use Illuminate\Support\Arr;
 
-class Lookup
+final class Lookup
 {
     public static function fromJson(array $lookup): ?self
     {
@@ -12,7 +12,7 @@ class Lookup
             return null;
         }
 
-        return new static(
+        return new self(
             carrier: Carrier::fromJson(Arr::get($lookup, 'carrier')),
         );
     }
@@ -21,7 +21,7 @@ class Lookup
 
     public static function fake(?Carrier $carrier = null): self
     {
-        return new static(
+        return new self(
             carrier: $carrier ?? Carrier::fake(),
         );
     }

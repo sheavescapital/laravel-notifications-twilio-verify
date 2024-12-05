@@ -4,11 +4,11 @@ namespace SheavesCapital\TwilioVerify\DTO;
 
 use Illuminate\Support\Arr;
 
-class Carrier
+final class Carrier
 {
     public static function fromJson(array $data): self
     {
-        return new static(
+        return new self(
             error_code: Arr::get($data, 'error_code'),
             name: Arr::get($data, 'name'),
             mobile_country_code: Arr::get($data, 'mobile_country_code'),
@@ -32,7 +32,7 @@ class Carrier
         ?string $mobile_network_code = null,
         ?string $type = null,
     ): self {
-        return new static(
+        return new self(
             error_code: $error_code ?? null,
             name: $name ?? 'Carrier Name',
             mobile_country_code: $mobile_country_code ?? '310',

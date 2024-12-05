@@ -7,7 +7,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 
-class SendCodeAttempt
+final class SendCodeAttempt
 {
     public static function fromJson(array $attempts): Collection
     {
@@ -31,7 +31,7 @@ class SendCodeAttempt
         ?string $channel = null,
         ?string $attempt_sid = null,
     ): self {
-        return new static(
+        return new self(
             time: $time ?? now(),
             channel: $channel ?? 'sms',
             attempt_sid: $attempt_sid ?? 'VL'.Str::random(32),
