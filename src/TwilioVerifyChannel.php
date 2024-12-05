@@ -13,7 +13,8 @@ class TwilioVerifyChannel
 {
     public function __construct(
         protected TwilioVerify $twilioVerify,
-    ) {}
+    ) {
+    }
 
     /**
      * Send the given notification.
@@ -56,7 +57,7 @@ class TwilioVerifyChannel
      */
     public function getTwoFactorCode($notifiable): ?string
     {
-        if (! $notifiable->two_factor_secret) {
+        if (!$notifiable->two_factor_secret) {
             return null;
         }
 
