@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 /**
  * @property Collection|SendCodeAttempt[] $send_code_attempts
  */
-final class VerificationStart
+final class Verification
 {
     public static function fromJson(array $data): self
     {

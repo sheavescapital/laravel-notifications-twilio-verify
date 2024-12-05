@@ -36,7 +36,7 @@ use SheavesCapital\TwilioVerify\Facades\TwilioVerify;
 /**
  * Start a new SMS verification to the phone number.
  */
-$verificationStart = TwilioVerify::start(to: '+12085059915');
+$verification = TwilioVerify::start(to: '+12085059915');
 
 /**
  * Check a verification code.
@@ -73,7 +73,7 @@ SheavesCapital\TwilioVerify\DTO\Lookup {
 ```
 
 ```php
-SheavesCapital\TwilioVerify\DTO\VerificationStart
+SheavesCapital\TwilioVerify\DTO\Verification
   +sid: "VEkEJNNkLugY4hietPDbcqUUZz3G5NoTTZ"            // string
   +service_sid: "VAssMsB84NdN0aJJceYsExX1223qAmrubx"    // string
   +account_sid: "ACizUsoInA3dbKR5LA9tOqqA0O3NFSHSNc"    // string

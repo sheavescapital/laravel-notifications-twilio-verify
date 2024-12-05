@@ -3,11 +3,12 @@
 namespace SheavesCapital\TwilioVerify\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use SheavesCapital\TwilioVerify\DTO\Verification;
 use SheavesCapital\TwilioVerify\DTO\VerificationCheck;
-use SheavesCapital\TwilioVerify\DTO\VerificationStart;
 
 /**
- * @method static VerificationStart start(string $to)
+ * @method static Verification start(string $to, string $channel = 'sms', ?string $code = null)
+ * @method static Verification update(string $to, string $status = 'approved')
  * @method static VerificationCheck check(string $to, string $code)
  *
  * @see \SheavesCapital\TwilioVerify\TwilioVerify

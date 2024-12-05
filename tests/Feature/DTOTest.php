@@ -5,8 +5,8 @@ namespace SheavesCapital\TwilioVerify\Tests\Feature;
 use SheavesCapital\TwilioVerify\DTO\Carrier;
 use SheavesCapital\TwilioVerify\DTO\Lookup;
 use SheavesCapital\TwilioVerify\DTO\SendCodeAttempt;
+use SheavesCapital\TwilioVerify\DTO\Verification;
 use SheavesCapital\TwilioVerify\DTO\VerificationCheck;
-use SheavesCapital\TwilioVerify\DTO\VerificationStart;
 use SheavesCapital\TwilioVerify\Tests\TestCase;
 
 class DTOTest extends TestCase
@@ -31,9 +31,9 @@ class DTOTest extends TestCase
     /** @test */
     public function it_does_create_a_fake_verification_start()
     {
-        $verification = VerificationStart::fake();
+        $verification = Verification::fake();
 
-        $this->assertInstanceOf(VerificationStart::class, $verification);
+        $this->assertInstanceOf(Verification::class, $verification);
     }
 
     /** @test */

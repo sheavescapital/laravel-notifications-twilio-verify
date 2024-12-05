@@ -3,8 +3,8 @@
 namespace SheavesCapital\TwilioVerify\Tests\Feature;
 
 use Illuminate\Support\Facades\Event;
+use SheavesCapital\TwilioVerify\DTO\Verification;
 use SheavesCapital\TwilioVerify\DTO\VerificationCheck;
-use SheavesCapital\TwilioVerify\DTO\VerificationStart;
 use SheavesCapital\TwilioVerify\Events\TwilioVerifyResponseLog;
 use SheavesCapital\TwilioVerify\Tests\TestCase;
 use SheavesCapital\TwilioVerify\TwilioVerify;
@@ -20,7 +20,7 @@ class TwilioVerifyTest extends TestCase
 
         $verification = (new TwilioVerify)->start(to: $phoneNumber);
 
-        $this->assertInstanceOf(VerificationStart::class, $verification);
+        $this->assertInstanceOf(Verification::class, $verification);
         $this->assertSame($phoneNumber, $verification->to);
         $this->assertSame('pending', $verification->status);
         $this->assertFalse($verification->valid);
