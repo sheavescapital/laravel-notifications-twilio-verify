@@ -31,17 +31,16 @@ TWILIO_SERVICE_SID=VAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ## 🏗 Usage
 
 ```php
-use SheavesCapital\TwilioVerify\Facades\TwilioVerify;
+namespace App\Notifications;
 
-/**
- * Start a new SMS verification to the phone number.
- */
-$verification = TwilioVerify::start(to: '+12085059915');
+use Illuminate\Notifications\Notification;
+use SheavesCapital\TwilioVerify\TwilioVerifyChannel;
 
-/**
- * Check a verification code.
- */
-$verificationCheck = TwilioVerify::check(to: '+12085059915', code: '1337');
+class SendOTP extends Notification {
+    public function via(object $notifiable): string {
+        return TwilioVerifyChannel::class;
+    }
+}
 ```
 
 ### 🔢 Verification Code Limits
