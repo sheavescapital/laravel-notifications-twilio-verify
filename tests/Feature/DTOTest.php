@@ -1,13 +1,13 @@
 <?php
 
-namespace CodebarAg\TwilioVerify\Tests\Feature;
+namespace SheavesCapital\TwilioVerify\Tests\Feature;
 
-use CodebarAg\TwilioVerify\DTO\Carrier;
-use CodebarAg\TwilioVerify\DTO\Lookup;
-use CodebarAg\TwilioVerify\DTO\SendCodeAttempt;
-use CodebarAg\TwilioVerify\DTO\VerificationCheck;
-use CodebarAg\TwilioVerify\DTO\VerificationStart;
-use CodebarAg\TwilioVerify\Tests\TestCase;
+use SheavesCapital\TwilioVerify\DTO\Carrier;
+use SheavesCapital\TwilioVerify\DTO\Lookup;
+use SheavesCapital\TwilioVerify\DTO\SendCodeAttempt;
+use SheavesCapital\TwilioVerify\DTO\VerificationCheck;
+use SheavesCapital\TwilioVerify\DTO\VerificationStart;
+use SheavesCapital\TwilioVerify\Tests\TestCase;
 
 class DTOTest extends TestCase
 {

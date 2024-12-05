@@ -1,13 +1,13 @@
 <?php
 
-namespace CodebarAg\TwilioVerify\Tests\Feature;
+namespace SheavesCapital\TwilioVerify\Tests\Feature;
 
-use CodebarAg\TwilioVerify\DTO\VerificationCheck;
-use CodebarAg\TwilioVerify\DTO\VerificationStart;
-use CodebarAg\TwilioVerify\Events\TwilioVerifyResponseLog;
-use CodebarAg\TwilioVerify\Tests\TestCase;
-use CodebarAg\TwilioVerify\TwilioVerify;
 use Illuminate\Support\Facades\Event;
+use SheavesCapital\TwilioVerify\DTO\VerificationCheck;
+use SheavesCapital\TwilioVerify\DTO\VerificationStart;
+use SheavesCapital\TwilioVerify\Events\TwilioVerifyResponseLog;
+use SheavesCapital\TwilioVerify\Tests\TestCase;
+use SheavesCapital\TwilioVerify\TwilioVerify;
 
 class TwilioVerifyTest extends TestCase
 {
@@ -18,7 +18,7 @@ class TwilioVerifyTest extends TestCase
         Event::fake();
         $phoneNumber = '+12085059915';
 
-        $verification = (new TwilioVerify())->start(to: $phoneNumber);
+        $verification = (new TwilioVerify)->start(to: $phoneNumber);
 
         $this->assertInstanceOf(VerificationStart::class, $verification);
         $this->assertSame($phoneNumber, $verification->to);
@@ -37,7 +37,7 @@ class TwilioVerifyTest extends TestCase
         $code = '4804';
         $phoneNumber = '+12085059915';
 
-        $verification = (new TwilioVerify())->check(
+        $verification = (new TwilioVerify)->check(
             to: $phoneNumber,
             code: $code,
         );

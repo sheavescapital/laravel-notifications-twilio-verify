@@ -1,11 +1,11 @@
 <?php
 
-namespace CodebarAg\TwilioVerify;
+namespace SheavesCapital\TwilioVerify;
 
-use CodebarAg\TwilioVerify\DTO\VerificationCheck;
-use CodebarAg\TwilioVerify\DTO\VerificationStart;
-use CodebarAg\TwilioVerify\Events\TwilioVerifyResponseLog;
 use Illuminate\Support\Facades\Http;
+use SheavesCapital\TwilioVerify\DTO\VerificationCheck;
+use SheavesCapital\TwilioVerify\DTO\VerificationStart;
+use SheavesCapital\TwilioVerify\Events\TwilioVerifyResponseLog;
 
 class TwilioVerify
 {

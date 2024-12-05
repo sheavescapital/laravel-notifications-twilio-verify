@@ -1,21 +1,21 @@
 <?php
 
-namespace CodebarAg\TwilioVerify\Facades;
+namespace SheavesCapital\TwilioVerify\Facades;
 
-use CodebarAg\TwilioVerify\DTO\VerificationCheck;
-use CodebarAg\TwilioVerify\DTO\VerificationStart;
 use Illuminate\Support\Facades\Facade;
+use SheavesCapital\TwilioVerify\DTO\VerificationCheck;
+use SheavesCapital\TwilioVerify\DTO\VerificationStart;
 
 /**
  * @method static VerificationStart start(string $to)
  * @method static VerificationCheck check(string $to, string $code)
  *
- * @see \CodebarAg\TwilioVerify\TwilioVerify
+ * @see \SheavesCapital\TwilioVerify\TwilioVerify
  */
 class TwilioVerify extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return \CodebarAg\TwilioVerify\TwilioVerify::class;
+        return \SheavesCapital\TwilioVerify\TwilioVerify::class;
     }
 }

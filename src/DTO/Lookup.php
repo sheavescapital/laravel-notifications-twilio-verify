@@ -1,6 +1,6 @@
 <?php
 
-namespace CodebarAg\TwilioVerify\DTO;
+namespace SheavesCapital\TwilioVerify\DTO;
 
 use Illuminate\Support\Arr;
 
@@ -17,9 +17,7 @@ class Lookup
         );
     }
 
-    public function __construct(public Carrier $carrier)
-    {
-    }
+    public function __construct(public Carrier $carrier) {}
 
     public static function fake(?Carrier $carrier = null): self
     {

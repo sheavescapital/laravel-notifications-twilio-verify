@@ -1,15 +1,16 @@
 {
-    "name": "codebar-ag/laravel-twilio-verify",
+    "name": "sheavescapital/laravel-notifications-twilio-verify",
     "description": "Twilio Verify integration with Laravel",
     "keywords": [
-        "laravel",
-        "codebar-ag",
-        "twilio-verify",
-        "laravel-twilio-verify"
+        "laravel-notifications",
+        "twilio-verify"
     ],
-    "homepage": "https://github.com/codebar-ag/laravel-twilio-verify",
+    "homepage": "https://github.com/sheavescapital/laravel-notifications-twilio-verify",
     "license": "MIT",
     "authors": [
+        {
+            "name": "SheavesCapital"
+        },
         {
             "name": "Sebastian x",
             "email": "sebastian.fix@codebar.ch",
@@ -38,12 +39,12 @@
     },
     "autoload": {
         "psr-4": {
-            "CodebarAg\\TwilioVerify\\": "src"
+            "SheavesCapital\\TwilioVerify\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "CodebarAg\\TwilioVerify\\Tests\\": "tests"
+            "SheavesCapital\\TwilioVerify\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -62,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "CodebarAg\\TwilioVerify\\TwilioVerifyServiceProvider"
+                "SheavesCapital\\TwilioVerify\\TwilioVerifyServiceProvider"
             ],
             "aliases": {
-                "TwilioVerify": "CodebarAg\\TwilioVerify\\Facades\\TwilioVerify"
+                "TwilioVerify": "SheavesCapital\\TwilioVerify\\Facades\\TwilioVerify"
             }
         }
     },

@@ -1,19 +1,19 @@
 <?php
 
-namespace CodebarAg\TwilioVerify\Tests;
+namespace SheavesCapital\TwilioVerify\Tests;
 
-use CodebarAg\TwilioVerify\TwilioVerifyServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
+use SheavesCapital\TwilioVerify\TwilioVerifyServiceProvider;
 
 class TestCase extends Orchestra
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Spatie\\TwilioVerify\\Database\\Factories\\' . class_basename($modelName) . 'Factory',
+            fn (string $modelName) => 'Spatie\\TwilioVerify\\Database\\Factories\\'.class_basename($modelName).'Factory',
         );
     }
 

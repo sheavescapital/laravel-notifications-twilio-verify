@@ -1,17 +1,6 @@
-<img src="https://banners.beyondco.de/Laravel%20Twilio%20Verify.png?theme=light&packageManager=composer+require&packageName=codebar-ag%2Flaravel-twilio-verify&pattern=circuitBoard&style=style_2&description=An+opinionated+way+to+integrate+Twilio+Verify+with+Laravel&md=1&showWatermark=0&fontSize=150px&images=badge-check&widths=500&heights=500">
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/codebar-ag/laravel-twilio-verify.svg?style=flat-square)](https://packagist.org/packages/codebar-ag/laravel-twilio-verify)
-[![Total Downloads](https://img.shields.io/packagist/dt/codebar-ag/laravel-twilio-verify.svg?style=flat-square)](https://packagist.org/packages/codebar-ag/laravel-twilio-verify)
-[![run-tests](https://github.com/codebar-ag/laravel-twilio-verify/actions/workflows/run-tests.yml/badge.svg)](https://github.com/codebar-ag/laravel-twilio-verify/actions/workflows/run-tests.yml)
-[![Psalm](https://github.com/codebar-ag/laravel-twilio-verify/actions/workflows/psalm.yml/badge.svg)](https://github.com/codebar-ag/laravel-twilio-verify/actions/workflows/psalm.yml)
-[![Check & fix styling](https://github.com/codebar-ag/laravel-twilio-verify/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/codebar-ag/laravel-twilio-verify/actions/workflows/php-cs-fixer.yml)
+This package is a opinionated fork of [codebar-ag/laravel-twilio-verify](https://github.com/codebar-ag/laravel-twilio-verify), mixed with some code from [laravel-notification-channels/twilio](https://github.com/laravel-notification-channels/twilio).
 
-This package was developed to give you a quick start to communicate with the
-Twilio Verify service.
-
-⚠️ This package is not designed as a replacement of the official 
-[Twilio REST API](https://www.twilio.com/docs/verify/api). 
-See the documentation if you need further functionality. ⚠️
 
 ## 💡 What is Twilio Verify?
 An elegant third-party integration to validate users with SMS, Voice, Email and
@@ -19,8 +8,8 @@ Push. Add verification to any step of your user‘s journey with a single API.
 
 ## 🛠 Requirements
 
-- PHP: `^8.0`
-- Laravel: `^8.12`
+- PHP: `^8.2`
+- Laravel: `^11`
 - Twilio Account
 
 ## ⚙️ Installation
@@ -28,7 +17,7 @@ Push. Add verification to any step of your user‘s journey with a single API.
 You can install the package via composer:
 
 ```bash
-composer require codebar-ag/laravel-twilio-verify
+composer require sheavescapital/laravel-notifications-twilio-verify
 ```
 
 Add the following environment variables to your `.env` file:
@@ -42,7 +31,7 @@ TWILIO_SERVICE_SID=VAXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ## 🏗 Usage
 
 ```php
-use CodebarAg\TwilioVerify\Facades\TwilioVerify;
+use SheavesCapital\TwilioVerify\Facades\TwilioVerify;
 
 /**
  * Start a new SMS verification to the phone number.
@@ -64,7 +53,7 @@ $verificationCheck = TwilioVerify::check(to: '+12085059915', code: '1337');
 ## 🏋️ DTO showcase
 
 ```php
-CodebarAg\TwilioVerify\DTO\SendCodeAttempt {
+SheavesCapital\TwilioVerify\DTO\SendCodeAttempt {
   +time: Illuminate\Support\Carbon                      // Carbon
   +channel: "sms"                                       // string
   +attempt_sid: "VLMn1NOnmIVWMITO4FbVGxNmEMJ72KKaB2"    // string
@@ -72,8 +61,8 @@ CodebarAg\TwilioVerify\DTO\SendCodeAttempt {
 ```
 
 ```php 
-CodebarAg\TwilioVerify\DTO\Lookup {
-  +carrier: CodebarAg\TwilioVerify\DTO\Carrier {
+SheavesCapital\TwilioVerify\DTO\Lookup {
+  +carrier: SheavesCapital\TwilioVerify\DTO\Carrier {
     +error_code: null           // ?string
     +name: "Carrier Name"       // string
     +mobile_country_code: "310" // string
@@ -84,7 +73,7 @@ CodebarAg\TwilioVerify\DTO\Lookup {
 ```
 
 ```php
-CodebarAg\TwilioVerify\DTO\VerificationStart
+SheavesCapital\TwilioVerify\DTO\VerificationStart
   +sid: "VEkEJNNkLugY4hietPDbcqUUZz3G5NoTTZ"            // string
   +service_sid: "VAssMsB84NdN0aJJceYsExX1223qAmrubx"    // string
   +account_sid: "ACizUsoInA3dbKR5LA9tOqqA0O3NFSHSNc"    // string
@@ -94,9 +83,9 @@ CodebarAg\TwilioVerify\DTO\VerificationStart
   +valid: false                                         // bool
   +created_at: Illuminate\Support\Carbon                // Carbon
   +updated_at: Illuminate\Support\Carbon                // Carbon
-  +lookup: CodebarAg\TwilioVerify\DTO\Lookup {...}      // Lookup
+  +lookup: SheavesCapital\TwilioVerify\DTO\Lookup {...}      // Lookup
   +send_code_attempts: Illuminate\Support\Collection {  // Collection
-      0 => CodebarAg\TwilioVerify\DTO\SendCodeAttempt {
+      0 => SheavesCapital\TwilioVerify\DTO\SendCodeAttempt {
         +time: Illuminate\Support\Carbon                    // Carbon
         +channel: "sms"                                     // string
         +attempt_sid: "VLTvj9jhh76cI78Hc1x0c3UORWJwwqVeTN"  // string
@@ -108,7 +97,7 @@ CodebarAg\TwilioVerify\DTO\VerificationStart
 ```
 
 ```php
-CodebarAg\TwilioVerify\DTO\VerificationCheck {
+SheavesCapital\TwilioVerify\DTO\VerificationCheck {
   +sid: "VEvRzh4hPUqmAjeC6li092VNT0yfd23lag"            // string
   +service_sid: "VAxSR0Wq91djjG9PAYtrtjt11f0I4lqdwa"    // string
   +account_sid: "ACcI5zbEYvLr0vPIUTQzWkTpP5DPqTCYDK"    // string
@@ -126,7 +115,7 @@ CodebarAg\TwilioVerify\DTO\VerificationCheck {
 You can publish the config file with:
 
 ```bash
-php artisan vendor:publish --provider="CodebarAg\TwilioVerify\TwilioVerifyServiceProvider" --tag="laravel-twilio-verify-config"
+php artisan vendor:publish --provider="SheavesCapital\TwilioVerify\TwilioVerifyServiceProvider" --tag="laravel-notifications-twilio-verify-config"
 ```
 
 This is the contents of the published config file:
@@ -158,7 +147,7 @@ return [
 Following events are fired:
 
 ```php 
-use CodebarAg\TwilioVerify\Events\TwilioVerifyResponseLog;
+use SheavesCapital\TwilioVerify\Events\TwilioVerifyResponseLog;
 
 // Log each response from the Twilio REST API.
 TwilioVerifyResponseLog::class => [
@@ -185,20 +174,10 @@ Run the tests:
 composer test
 ```
 
-## 📝 Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## ✏️ Contributing
-
-Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
-
-## 🧑‍💻 Security Vulnerabilities
-
-Please review [our security policy](../../security/policy) on how to report security vulnerabilities.
 
 ## 🙏 Credits
 
+- [codebar Solutions AG](https://github.com/codebar-ag)
 - [Ruslan Steiger](https://github.com/SuddenlyRust)
 - [All Contributors](../../contributors)
 - [Skeleton Repository from Spatie](https://github.com/spatie/package-skeleton-laravel)

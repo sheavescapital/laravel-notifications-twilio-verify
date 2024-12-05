@@ -1,6 +1,6 @@
 <?php
 
-namespace CodebarAg\TwilioVerify\DTO;
+namespace SheavesCapital\TwilioVerify\DTO;
 
 use Illuminate\Support\Arr;
 
@@ -23,8 +23,7 @@ class Carrier
         public string $mobile_country_code,
         public string $mobile_network_code,
         public string $type,
-    ) {
-    }
+    ) {}
 
     public static function fake(
         ?string $error_code = null,

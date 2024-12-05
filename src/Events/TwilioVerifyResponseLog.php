@@ -1,6 +1,6 @@
 <?php
 
-namespace CodebarAg\TwilioVerify\Events;
+namespace SheavesCapital\TwilioVerify\Events;
 
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -13,7 +13,5 @@ class TwilioVerifyResponseLog
     use InteractsWithSockets;
     use SerializesModels;
 
-    public function __construct(public Response $response)
-    {
-    }
+    public function __construct(public Response $response) {}
 }
