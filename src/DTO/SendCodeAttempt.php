@@ -24,8 +24,7 @@ final class SendCodeAttempt
         public Carbon $time,
         public string $channel,
         public string $attempt_sid,
-    ) {
-    }
+    ) {}
 
     public static function fake(
         ?Carbon $time = null,
@@ -35,7 +34,7 @@ final class SendCodeAttempt
         return new self(
             time: $time ?? now(),
             channel: $channel ?? 'sms',
-            attempt_sid: $attempt_sid ?? 'VL' . Str::random(32),
+            attempt_sid: $attempt_sid ?? 'VL'.Str::random(32),
         );
     }
 }
